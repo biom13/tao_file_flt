@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tạo file FLT</title>
+  <link rel="stylesheet" href="taskpane.css" />
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+</head>
+<body>
+  <main>
+    <h1>Tạo file FLT</h1>
+    <p class="lead">Đọc các sheet đang hiển thị trong workbook này, gom mã nhân viên theo cổng/máy và tạo một file .flt cho mỗi nhóm.</p>
+
+    <button id="scan" class="primary" type="button">Quét workbook</button>
+
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+
+    <section id="results" hidden>
+      <h2 id="summary"></h2>
+
+      <div class="actions">
+        <button id="saveDir" type="button" hidden>Lưu vào thư mục result</button>
+        <button id="saveZip" type="button">Tải file .zip</button>
+      </div>
+
+      <table id="fileTable">
+        <caption class="sr">Danh sách file .flt sẽ được tạo</caption>
+        <thead><tr><th scope="col">Tên file</th><th scope="col" class="num">Số mã</th></tr></thead>
+        <tbody></tbody>
+      </table>
+
+      <div id="warnings" class="warnings" hidden></div>
+
+      <details>
+        <summary>Chi tiết từng sheet</summary>
+        <ul id="sheetList" class="plain"></ul>
+      </details>
+
+      <details>
+        <summary>Tải từng file</summary>
+        <ul id="singleList" class="plain"></ul>
+      </details>
+    </section>
+  </main>
+
+  <script src="flt-core.js"></script>
+  <script src="taskpane.js"></script>
+</body>
+</html>
